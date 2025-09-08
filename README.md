@@ -54,17 +54,7 @@ http://localhost/Soft-Launch-Paramount
 
 👥 Team Members
 
-M.K.A.U.Perera (PM) – Inventory & Integration
 
-H.K.N.N.Karunarthne – Employee Management
-
-P.H.M.Bimsara – Customer Management
-
-N.Vithushan – Land Planning + Tree Recommendation
-
-W.K.C.Thayodh – Supplier Management
-
-S.M.O.N.Semasinghe – Financial Records
 
 📅 Project Progress
 

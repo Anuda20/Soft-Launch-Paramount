@@ -1,0 +1,32 @@
+:root {
+  --primary-color: #1dc91d;
+  --secondary-color: #e6ffe6;
+  --background-color: #f8fff8;
+  --text-primary: #1a1a1a;
+  --text-secondary: #4d4d4d;
+  --accent-color: #a3e6a3;
+  --danger-color: #ef4444;
+}
+
+body {
+  font-family: 'Manrope', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-primary);
+}
+
+
+
+.nav-link.active {
+  color: var(--primary-color);
+  font-weight: 700;
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 0.25rem;
+}
+
+.chart-bar {
+  background-color: var(--secondary-color);
+}
+
+.chart-bar-fill {
+  background-color: var(--primary-color);
+}

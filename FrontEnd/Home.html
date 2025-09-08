@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<title>Paramount Garden Services</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+
+<!-- External CSS -->
+  <link rel="stylesheet" href="Homepage(CSS).css">
+
+
+
+
+
+
+</head>
+<body class="antialiased">
+<div class="flex min-h-screen flex-col bg-[var(--background-color)]">
+<header class="sticky top-0 z-10 flex items-center justify-between whitespace-nowrap border-b border-gray-200 bg-white px-6 py-4 shadow-sm">
+<div class="flex items-center gap-3">
+<svg class="icon-leaf text-[var(--primary-color)]" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21.92,12.08A10,10,0,1,1,12,2a10,10,0,0,1,9.92,10.08ZM12,4.12A7.89,7.89,0,0,0,9.15,18.84a.52.52,0,0,0,.6.63,6.2,6.2,0,0,1,3.48-3.4,8.87,8.87,0,0,1,3.61-1.46A7.83,7.83,0,0,0,12,4.12Z"></path></svg>
+<div class="flex items-center gap-3">
+  <!-- Company Logo -->
+  <img src="../Images/logo.png" alt="Paramount Garden Services Logo" class="h-10 w-10 object-contain">
+
+  <!-- Company Name -->
+  <h1 class="text-xl font-bold text-[var(--text-primary)]">
+    Paramount Garden Services
+  </h1>
+</div>
+
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="nav-link active" href="#">Dashboard</a>
+<a class="nav-link text-[var(--text-secondary)] hover:text-[var(--primary-color)] font-medium transition-colors duration-200" href="#">Inventory</a>
+<a class="nav-link text-[var(--text-secondary)] hover:text-[var(--primary-color)] font-medium transition-colors duration-200" href="#">Employees</a>
+<a class="nav-link text-[var(--text-secondary)] hover:text-[var(--primary-color)] font-medium transition-colors duration-200" href="#">Customers</a>
+<a class="nav-link text-[var(--text-secondary)] hover:text-[var(--primary-color)] font-medium transition-colors duration-200" href="#">Suppliers</a>
+<a class="nav-link text-[var(--text-secondary)] hover:text-[var(--primary-color)] font-medium transition-colors duration-200" href="#">Land Planning</a>
+<a class="nav-link text-[var(--text-secondary)] hover:text-[var(--primary-color)] font-medium transition-colors duration-200" href="#">Financials</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="relative rounded-full p-2 text-[var(--text-secondary)] hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:ring-opacity-50">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+
+</div>
+</header>
+<main class="container mx-auto flex-1 px-4 py-8 lg:px-8">
+<div class="relative mb-8 h-64 w-full rounded-xl bg-cover bg-center" style='background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCWzTANls_xd9Ir5mI8QUBCOOcSN5YtBzakCK7Rqbkvg1lhci35EFm-Jf0ls_69UZLwaEkXYE4Xbf2J5PXJTdRDPj_KWWhQKndSIqBs9LtB1ohgbbOR-Li7xZWq0JRq-F741Ybl09ruuBDY4UNA8KOrsy85OFfuq0DK0oWBejJSQTLxjGZ-YP6dcas8Gk2HdysujTO42YpRxqV-RurNajdnLVbfiDgJsylHbnvtqow_UZdcPt3MdsBaDIl90Bucd2n40cSY_IY6JUY");'>
+<div class="absolute inset-0 flex flex-col justify-center rounded-xl bg-black bg-opacity-40 p-8">
+<h2 class="text-4xl font-bold text-white">Welcome </h2>
+<p class="mt-2 text-lg text-gray-200">Here's a snapshot of your business today.</p>
+</div>
+</div>
+<section class="mb-8">
+<h3 class="text-2xl font-semibold text-[var(--text-primary)] mb-4">Quick Access</h3>
+<div class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
+<a class="flex flex-col items-center justify-center gap-2 rounded-xl bg-white p-6 text-center shadow-md transition-transform hover:-translate-y-1 hover:shadow-lg" href="#">
+<span class="material-symbols-outlined text-4xl text-[var(--primary-color)]">inventory_2</span>
+<span class="font-semibold text-[var(--text-primary)]">Inventory</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-2 rounded-xl bg-white p-6 text-center shadow-md transition-transform hover:-translate-y-1 hover:shadow-lg" href="#">
+<span class="material-symbols-outlined text-4xl text-[var(--primary-color)]">groups</span>
+<span class="font-semibold text-[var(--text-primary)]">Employees</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-2 rounded-xl bg-white p-6 text-center shadow-md transition-transform hover:-translate-y-1 hover:shadow-lg" href="#">
+<span class="material-symbols-outlined text-4xl text-[var(--primary-color)]">people</span>
+<span class="font-semibold text-[var(--text-primary)]">Customers</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-2 rounded-xl bg-white p-6 text-center shadow-md transition-transform hover:-translate-y-1 hover:shadow-lg" href="#">
+<span class="material-symbols-outlined text-4xl text-[var(--primary-color)]">local_shipping</span>
+<span class="font-semibold text-[var(--text-primary)]">Suppliers</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-2 rounded-xl bg-white p-6 text-center shadow-md transition-transform hover:-translate-y-1 hover:shadow-lg" href="#">
+<span class="material-symbols-outlined text-4xl text-[var(--primary-color)]">landscape</span>
+<span class="font-semibold text-[var(--text-primary)]">Land Planning</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-2 rounded-xl bg-white p-6 text-center shadow-md transition-transform hover:-translate-y-1 hover:shadow-lg" href="#">
+<span class="material-symbols-outlined text-4xl text-[var(--primary-color)]">assessment</span>
+<span class="font-semibold text-[var(--text-primary)]">Financials</span>
+</a>
+</div>
+</section>
+<section>
+<h3 class="text-2xl font-semibold text-[var(--text-primary)] mb-4">Dashboard Summary</h3>
+<div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+<div class="rounded-xl bg-white p-6 shadow-md lg:col-span-2">
+<h4 class="mb-4 text-xl font-semibold text-[var(--text-primary)]">Monthly Financial Summary</h4>
+<div class="flex items-end gap-2">
+
+<div class="flex items-center text-[var(--primary-color)]">
+<span class="material-symbols-outlined text-lg">trending_up</span>
+
+</div>
+</div>
+<p class="text-sm text-[var(--text-secondary)]">vs. last month</p>
+
+</div>
+<div class="space-y-6">
+<div class="rounded-xl bg-white p-6 shadow-md">
+<div class="flex items-start justify-between">
+<div>
+<h4 class="font-semibold text-[var(--text-primary)]">Inventory Status</h4>
+
+</div>
+
+</div>
+
+<a class="mt-4 inline-block text-sm font-semibold text-[var(--primary-color)] hover:underline" href="#">Manage Inventory →</a>
+</div>
+<div class="rounded-xl bg-white p-6 shadow-md">
+
+<div class="mt-2 flex items-center gap-2">
+
+</div>
+<a class="mt-4 inline-block text-sm font-semibold text-[var(--primary-color)] hover:underline" href="#">View Project →</a>
+</div>
+<div class="rounded-xl bg-white p-6 shadow-md">
+<h4 class="font-semibold text-[var(--text-primary)]">Employee Count</h4>
+
+
+</div>
+</div>
+</div>
+</section>
+</main>
+</div>
+
+</body></html>

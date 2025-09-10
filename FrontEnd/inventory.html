@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Inventory | Paramount Garden Services</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link rel="stylesheet" href="Homepage(CSS).css">
+</head>
+<body class="antialiased bg-[var(--background-color)]">
+  <div class="flex min-h-screen flex-col">
+
+    <!-- Navbar -->
+    <header class="sticky top-0 z-10 flex items-center justify-between border-b border-gray-200 bg-white px-6 py-4 shadow-sm">
+      <div class="flex items-center gap-3">
+        <img src="../Images/logo.png" alt="Logo" class="h-10 w-10 object-contain">
+        <h1 class="text-xl font-bold text-[var(--text-primary)]">Paramount Garden Services</h1>
+      </div>
+      <nav class="hidden md:flex items-center gap-6">
+        <a href="#" class="nav-link hover:text-[var(--primary-color)]">Dashboard</a>
+        <a href="#" class="nav-link active text-[var(--primary-color)] font-semibold">Inventory</a>
+        <a href="#" class="nav-link hover:text-[var(--primary-color)]">Employees</a>
+        <a href="#" class="nav-link hover:text-[var(--primary-color)]">Customers</a>
+        <a href="#" class="nav-link hover:text-[var(--primary-color)]">Suppliers</a>
+        <a href="#" class="nav-link hover:text-[var(--primary-color)]">Planning</a>
+        <a href="#" class="nav-link hover:text-[var(--primary-color)]">Financials</a>
+      </nav>
+      <button class="rounded-full p-2 hover:bg-gray-100">
+        <span class="material-symbols-outlined">notifications</span>
+      </button>
+    </header>
+
+    <!-- Main -->
+    <main class="container mx-auto flex-1 px-4 py-8 lg:px-8">
+      <h2 class="text-3xl font-bold text-[var(--text-primary)] mb-6">Inventory Overview</h2>
+
+      <!-- Category Cards -->
+      <div id="categoryContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Cards filled dynamically -->
+      </div>
+    </main>
+
+    <!-- Floating Add Button -->
+    <button id="openForm" class="fixed bottom-6 right-6 bg-[var(--primary-color)] text-white p-4 rounded-full shadow-lg hover:opacity-90">
+      <span class="material-symbols-outlined">add</span>
+    </button>
+
+    <!-- Modal Form -->
+    <div id="formModal" class="hidden fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-20">
+      <div class="bg-white rounded-2xl shadow-lg w-full max-w-lg p-6">
+        <h3 class="text-lg font-semibold mb-4">Add / Update Inventory</h3>
+        <form id="inventoryForm" class="grid grid-cols-1 gap-4">
+          <input type="hidden" id="editIndex">
+          <input type="text" id="itemName" placeholder="Item Name" class="border rounded-lg px-3 py-2" required>
+          <select id="category" class="border rounded-lg px-3 py-2" required>
+            <option value="">Select Category</option>
+            <option value="Supplies">Supplies</option>
+            <option value="Equipment">Equipment</option>
+            <option value="Tools">Tools</option>
+            <option value="Plants">Plants</option>
+          </select>
+          <input type="number" id="quantity" placeholder="Quantity" min="1" class="border rounded-lg px-3 py-2" required>
+          <div class="flex justify-end gap-3 mt-4">
+            <button type="button" id="cancelForm" class="px-4 py-2 rounded-lg border">Cancel</button>
+            <button type="submit" class="bg-[var(--primary-color)] text-white rounded-lg px-4 py-2 font-semibold">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+ <!-- <script>
+    // Inventory sample data
+    let inventory = JSON.parse(localStorage.getItem("inventory")) || [
+      { name: "Fertilizer", category: "Supplies", quantity: 150 },
+      { name: "Lawn Mower", category: "Equipment", quantity: 5 },
+      { name: "Shovel", category: "Tools", quantity: 12 },
+      { name: "Rose Plant", category: "Plants", quantity: 40 },
+      { name: "Gloves", category: "Supplies", quantity: 100 },
+    ];
+
+    const categoryContainer = document.getElementById("categoryContainer");
+    const openFormBtn = document.getElementById("openForm");
+    const formModal = document.getElementById("formModal");
+    const cancelForm = document.getElementById("cancelForm");
+    const form = document.getElementById("inventoryForm");
+    const itemName = document.getElementById("itemName");
+    const category = document.getElementById("category");
+    const quantity = document.getElementById("quantity");
+    const editIndex = document.getElementById("editIndex");
+
+    function saveToLocalStorage() {
+      localStorage.setItem("inventory", JSON.stringify(inventory));
+    }
+
+    function renderInventory() {
+      const categories = {};
+      inventory.forEach(item => {
+        if (!categories[item.category]) categories[item.category] = [];
+        categories[item.category].push(item);
+      });
+
+      categoryContainer.innerHTML = "";
+      Object.keys(categories).forEach(cat => {
+        let itemsHTML = categories[cat].map((item, index) => {
+          const status = item.quantity <= 20
+            ? `<span class="px-2 py-1 text-xs rounded bg-[var(--danger-color)] text-white">Low Stock</span>`
+            : `<span class="px-2 py-1 text-xs rounded bg-green-200 text-green-800">In Stock</span>`;
+          return `
+            <div class="flex justify-between items-center p-3 border rounded-lg mb-2">
+              <div>
+                <p class="font-medium">${item.name}</p>
+                <p class="text-sm text-gray-500">Qty: ${item.quantity}</p>
+                ${status}
+              </div>
+              <div class="flex gap-2">
+                <button onclick="editItem(${index})" class="text-blue-600 hover:underline text-sm">Edit</button>
+                <button onclick="deleteItem(${index})" class="text-red-600 hover:underline text-sm">Delete</button>
+              </div>
+            </div>`;
+        }).join("");
+
+        categoryContainer.innerHTML += `
+          <div class="bg-white rounded-2xl shadow-md p-6">
+            <h3 class="text-lg font-semibold mb-4">${cat}</h3>
+            ${itemsHTML || "<p class='text-gray-500'>No items</p>"}
+          </div>`;
+      });
+    }
+
+    function editItem(index) {
+      const item = inventory[index];
+      itemName.value = item.name;
+      category.value = item.category;
+      quantity.value = item.quantity;
+      editIndex.value = index;
+      formModal.classList.remove("hidden");
+    }
+
+    function deleteItem(index) {
+      if (confirm("Delete this item?")) {
+        inventory.splice(index, 1);
+        saveToLocalStorage();
+        renderInventory();
+      }
+    }
+
+    // Form handling
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const newItem = {
+        name: itemName.value,
+        category: category.value,
+        quantity: parseInt(quantity.value),
+      };
+      if (editIndex.value) {
+        inventory[editIndex.value] = newItem;
+        editIndex.value = "";
+      } else {
+        inventory.push(newItem);
+      }
+      saveToLocalStorage();
+      form.reset();
+      formModal.classList.add("hidden");
+      renderInventory();
+    });
+
+    openFormBtn.addEventListener("click", () => formModal.classList.remove("hidden"));
+    cancelForm.addEventListener("click", () => formModal.classList.add("hidden"));
+
+    renderInventory();
+  </script>-->
+
+  <script>
+    const categoryContainer = document.getElementById("categoryContainer");
+    const openFormBtn = document.getElementById("openForm");
+    const formModal = document.getElementById("formModal");
+    const cancelForm = document.getElementById("cancelForm");
+    const form = document.getElementById("inventoryForm");
+    const itemName = document.getElementById("itemName");
+    const category = document.getElementById("category");
+    const quantity = document.getElementById("quantity");
+    const editIndex = document.getElementById("editIndex");
+  
+    let editingId = null;
+  
+    async function fetchInventory() {
+      const res = await fetch("inventory_api.php?action=fetch");
+      const data = await res.json();
+      renderInventory(data);
+    }
+  
+    function renderInventory(items) {
+      const categories = {};
+      items.forEach(item => {
+        if (!categories[item.category]) categories[item.category] = [];
+        categories[item.category].push(item);
+      });
+  
+      categoryContainer.innerHTML = "";
+      Object.keys(categories).forEach(cat => {
+        let itemsHTML = categories[cat].map(item => {
+          const status = item.quantity <= 20
+            ? `<span class="px-2 py-1 text-xs rounded bg-[var(--danger-color)] text-white">Low Stock</span>`
+            : `<span class="px-2 py-1 text-xs rounded bg-green-200 text-green-800">In Stock</span>`;
+          return `
+            <div class="flex justify-between items-center p-3 border rounded-lg mb-2">
+              <div>
+                <p class="font-medium">${item.item_name}</p>
+                <p class="text-sm text-gray-500">Qty: ${item.quantity}</p>
+                ${status}
+              </div>
+              <div class="flex gap-2">
+                <button onclick="editItem(${item.item_id}, '${item.item_name}', '${item.category}', ${item.quantity})" class="text-blue-600 hover:underline text-sm">Edit</button>
+                <button onclick="deleteItem(${item.item_id})" class="text-red-600 hover:underline text-sm">Delete</button>
+              </div>
+            </div>`;
+        }).join("");
+  
+        categoryContainer.innerHTML += `
+          <div class="bg-white rounded-2xl shadow-md p-6">
+            <h3 class="text-lg font-semibold mb-4">${cat}</h3>
+            ${itemsHTML || "<p class='text-gray-500'>No items</p>"}
+          </div>`;
+      });
+    }
+  
+    function editItem(id, name, cat, qty) {
+      editingId = id;
+      itemName.value = name;
+      category.value = cat;
+      quantity.value = qty;
+      formModal.classList.remove("hidden");
+    }
+  
+    async function deleteItem(id) {
+      if (confirm("Delete this item?")) {
+        await fetch("inventory_api.php?action=delete", {
+          method: "POST",
+          body: JSON.stringify({ id }),
+        });
+        fetchInventory();
+      }
+    }
+  
+    // Form handling
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const newItem = {
+        name: itemName.value,
+        category: category.value,
+        quantity: parseInt(quantity.value),
+        unit_price: 0,
+        supplier_id: null,
+      };
+  
+      if (editingId) {
+        newItem.id = editingId;
+        await fetch("inventory_api.php?action=update", {
+          method: "POST",
+          body: JSON.stringify(newItem),
+        });
+        editingId = null;
+      } else {
+        await fetch("inventory_api.php?action=add", {
+          method: "POST",
+          body: JSON.stringify(newItem),
+        });
+      }
+  
+      form.reset();
+      formModal.classList.add("hidden");
+      fetchInventory();
+    });
+  
+    openFormBtn.addEventListener("click", () => formModal.classList.remove("hidden"));
+    cancelForm.addEventListener("click", () => formModal.classList.add("hidden"));
+  
+    fetchInventory();
+  </script>
+  
+</body>
+</html>

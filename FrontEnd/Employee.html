@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Employer | Paramount Garden Services</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+<!-- External CSS -->
+<link rel="stylesheet" href="Employer(CSS).css">
+
+</head>
+<body class="antialiased">
+<div class="flex min-h-screen flex-col bg-[var(--background-color)]">
+
+<!-- Header -->
+<header class="sticky top-0 z-10 flex items-center justify-between whitespace-nowrap border-b border-gray-200 bg-white px-6 py-4 shadow-sm">
+  <div class="flex items-center gap-3">
+    <img src="../Images/logo.png" alt="Paramount Garden Services Logo" class="h-10 w-10 object-contain">
+    <h1 class="text-xl font-bold text-[var(--text-primary)]">Paramount Garden Services</h1>
+  </div>
+  <nav class="hidden md:flex items-center gap-6">
+<a class="nav-link active" href="#">Dashboard</a>
+<a class="nav-link text-[var(--text-secondary)] hover:text-[var(--primary-color)] font-medium transition-colors duration-200" href="#">Inventory</a>
+<a class="nav-link text-[var(--text-secondary)] hover:text-[var(--primary-color)] font-medium transition-colors duration-200" href="#">Customers</a>
+<a class="nav-link text-[var(--text-secondary)] hover:text-[var(--primary-color)] font-medium transition-colors duration-200" href="#">Suppliers</a>
+<a class="nav-link text-[var(--text-secondary)] hover:text-[var(--primary-color)] font-medium transition-colors duration-200" href="#">Land Planning</a>
+<a class="nav-link text-[var(--text-secondary)] hover:text-[var(--primary-color)] font-medium transition-colors duration-200" href="#">Financials</a>
+</nav>
+  <div class="flex items-center gap-4">
+    <button class="relative rounded-full p-2 text-[var(--text-secondary)] hover:bg-gray-100 focus:ring-2 focus:ring-[var(--primary-color)]">
+      <span class="material-symbols-outlined">notifications</span>
+    </button>
+  </div>
+</header>
+
+<!-- Main Content -->
+<main class="container mx-auto flex-1 px-4 py-8 lg:px-8">
+  
+  <!-- Title -->
+  <div class="mb-8">
+    <h2 class="text-3xl font-bold text-[var(--text-primary)]">Employee Management</h2>
+    <p class="text-[var(--text-secondary)] mt-2">Manage and track your employees easily.</p>
+  </div>
+
+  <!-- Quick Actions -->
+  <section class="mb-8">
+    <h3 class="text-2xl font-semibold text-[var(--text-primary)] mb-4">Quick Actions</h3>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <a href="#" class="quick-card">
+        <span class="material-symbols-outlined text-4xl text-[var(--primary-color)]">person_add</span>
+        <span class="font-semibold">Add Employee</span>
+      </a>
+      <a href="#" class="quick-card">
+        <span class="material-symbols-outlined text-4xl text-[var(--primary-color)]">list_alt</span>
+        <span class="font-semibold">Employee List</span>
+      </a>
+      <a href="#" class="quick-card">
+        <span class="material-symbols-outlined text-4xl text-[var(--primary-color)]">schedule</span>
+        <span class="font-semibold">Schedules</span>
+      </a>
+      <a href="#" class="quick-card">
+        <span class="material-symbols-outlined text-4xl text-[var(--primary-color)]">payment</span>
+        <span class="font-semibold">Payroll</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Employee Table -->
+  <section>
+    <h3 class="text-2xl font-semibold text-[var(--text-primary)] mb-4">Employee List</h3>
+    <div class="rounded-xl bg-white p-6 shadow-md overflow-x-auto">
+      <table class="w-full text-left border-collapse">
+        <thead>
+          <tr class="bg-[var(--secondary-color)] text-[var(--text-primary)]">
+            <th class="p-3">ID</th>
+            <th class="p-3">Name</th>
+            <th class="p-3">Position</th>
+            <th class="p-3">Contact</th>
+            <th class="p-3">Status</th>
+            <th class="p-3">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b hover:bg-gray-50">
+            <td class="p-3">E001</td>
+            <td class="p-3">John Doe</td>
+            <td class="p-3">Gardener</td>
+            <td class="p-3">+94 77 123 4567</td>
+            <td class="p-3"><span class="px-2 py-1 rounded bg-green-100 text-green-700 text-sm">Active</span></td>
+            <td class="p-3 space-x-2">
+              <button class="btn-edit">Edit</button>
+              <button class="btn-delete">Delete</button>
+            </td>
+          </tr>
+          <tr class="border-b hover:bg-gray-50">
+            <td class="p-3">E002</td>
+            <td class="p-3">Jane Smith</td>
+            <td class="p-3">Supervisor</td>
+            <td class="p-3">+94 71 987 6543</td>
+            <td class="p-3"><span class="px-2 py-1 rounded bg-yellow-100 text-yellow-700 text-sm">On Leave</span></td>
+            <td class="p-3 space-x-2">
+              <button class="btn-edit">Edit</button>
+              <button class="btn-delete">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</main>
+</div>
+</body>
+</html>

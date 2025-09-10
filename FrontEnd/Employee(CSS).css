@@ -1,0 +1,55 @@
+:root {
+  --primary-color: #1dc91d;
+  --secondary-color: #e6ffe6;
+  --background-color: #f8fff8;
+  --text-primary: #1a1a1a;
+  --text-secondary: #4d4d4d;
+  --accent-color: #a3e6a3;
+  --danger-color: #ef4444;
+}
+
+body {
+  font-family: 'Manrope', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-primary);
+}
+
+.nav-link.active {
+  color: var(--primary-color);
+  font-weight: 700;
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 0.25rem;
+}
+
+.quick-card {
+  @apply flex flex-col items-center justify-center gap-2 rounded-xl bg-white p-6 text-center shadow-md transition-transform hover:-translate-y-1 hover:shadow-lg;
+}
+
+/* Buttons */
+.btn-edit {
+  background-color: var(--accent-color);
+  color: var(--text-primary);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.btn-edit:hover {
+  background-color: #7edc7e;
+}
+
+.btn-delete {
+  background-color: var(--danger-color);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.btn-delete:hover {
+  background-color: #dc2626;
+}
